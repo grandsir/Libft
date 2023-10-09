@@ -14,7 +14,7 @@
 
 void	*memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	if (dst == NULL && src == NULL)
 		return (NULL);
@@ -30,7 +30,5 @@ void	*memmove(void *dst, const void *src, size_t len)
 		}
 	}
 	else
-	{
 		return (dst);
-	}
 }
