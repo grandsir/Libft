@@ -6,13 +6,13 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:39:04 by databey           #+#    #+#             */
-/*   Updated: 2023/10/09 14:13:48 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/09 18:01:06 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isasci(int c)
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }
