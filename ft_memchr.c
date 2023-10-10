@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 18:15:27 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 12:39:25 by databey          ###   ########.fr       */
+/*   Created: 2023/10/10 13:04:08 by databey           #+#    #+#             */
+/*   Updated: 2023/10/10 13:41:05 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	n;
-	int	i;
-	int	num;
+	size_t	i;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
-	n = 1;
-	num = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (i < n)
 	{
-		if (str[i] == '-')
-			n *= -1;
+		if (((unsigned char *)s)[i] == c)
+			return (s);
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
-		num = num * 10 + (str[i++] - 48);
-	return (num * n);
+	return (NULL);
 }

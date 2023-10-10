@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:39:08 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 11:25:06 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/10 13:10:18 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return (ft_isalpha(c) && ft_isdigit(c));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

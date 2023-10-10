@@ -6,17 +6,17 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:03:27 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 11:25:06 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/10 13:26:54 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (dst == NULL || src == NULL)
+	if (dst == NULL && src == NULL)
 		return (NULL);
 	i = 0;
 	while (i < n)

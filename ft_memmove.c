@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:35:34 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 11:25:06 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/10 16:32:20 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (dst == NULL && src == NULL)
 		return (NULL);
-	i = 0;
+	i = len;
 	if (dst < src)
-		ft_memcpy(dst, src, len);
-	else if (dst > src)
+		return (ft_memcpy(dst, src, len));
+	if (dst > src)
 	{
-		while (i < len)
-		{
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
+		while (i-- > 0)
+			((unsigned char *) dst)[i] = ((unsigned char *) src)[i];
 	}
 	else
 		return (dst);

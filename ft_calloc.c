@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 18:15:27 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 12:39:25 by databey          ###   ########.fr       */
+/*   Created: 2023/10/10 13:44:26 by databey           #+#    #+#             */
+/*   Updated: 2023/10/10 17:01:17 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	n;
-	int	i;
-	int	num;
+	void	*ptr;
+	size_t	ptrsize;
 
-	i = 0;
-	n = 1;
-	num = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			n *= -1;
-		i++;
-	}
-	while (str[i] >= 48 && str[i] <= 57)
-		num = num * 10 + (str[i++] - 48);
-	return (num * n);
+	ptrsize = count * size;
+	ptr = malloc(ptrsize);
+	if (ptr)
+		ft_bzero(ptr, ptrsize);
+	return (ptr);
 }
