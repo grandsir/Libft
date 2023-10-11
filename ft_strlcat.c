@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:18:32 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 13:05:31 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/11 13:56:17 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	j;
 	size_t	z;
 
-	i = 0;
+	i = ft_strlen(dst);
 	j = 0;
-	z = 0;
-	while (dst[i])
-		i++;
-	while (src[z])
-		z++;
+	z = ft_strlen(src);
 	if (size <= i)
 		z += size;
 	else

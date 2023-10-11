@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 12:14:40 by databey           #+#    #+#             */
-/*   Updated: 2023/10/11 14:51:31 by databey          ###   ########.fr       */
+/*   Created: 2023/10/11 14:07:19 by databey           #+#    #+#             */
+/*   Updated: 2023/10/11 15:53:47 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	**ft_split(char const *s, char c)
 {
-	char	*joined;
-	size_t	s1_len;
-	size_t	s2_len;
+	char	**arr;
+	char	*temp;
 	int		i;
 
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	joined = (char *)malloc(s1_len + s2_len + 1);
-	i = -1;
-	while (++i < s1_len)
-		joined[i] = s1[i];
-	i = -1;
-	while (++i < s2_len)
-		joined[i] = s2[i];
-	return (joined);
+	while (ft_strchr(s, c) - i < ft_strlen(s) && arr)
+	{
+		temp = ft_substr(s, i, ft_strchr(s, c) - i);
+		*(arr)++ = temp;
+	}
+	return (arr);
+}
+
+int main() {
+	char *str = "test,test,test";
+	char sep = ',';
+	char **arr = ft_split(str, c);
+
+	while(*arr)
+	{
+		printf("%s", *(arr)++);
+	}
 }
