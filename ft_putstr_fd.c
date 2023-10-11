@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 14:07:19 by databey           #+#    #+#             */
-/*   Updated: 2023/10/11 16:53:37 by databey          ###   ########.fr       */
+/*   Created: 2023/10/11 17:44:09 by databey           #+#    #+#             */
+/*   Updated: 2023/10/11 17:45:39 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	**arr;
-	int		i;
-	size_t	len;
-	char	*temp;
-
-	len = ft_strlen(s);
-	arr = (char **)malloc((len + 1) * sizeof(char *));
-	if (!arr)
-		return (NULL);
-	i = 0;
 	while (*s)
-	{
-		temp = ft_substr(s, 0, ft_strchr(s, c) - s);
-		if (temp)
-			arr[i++] = temp;
-		s = ft_strchr(s, c);
-		if (!s)
-			break ;
-		s++;
-	}
-	arr[i] = NULL ;
-	return (arr);
+		ft_putchar_fd(*s++, fd);
 }

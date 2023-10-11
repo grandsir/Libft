@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 14:07:19 by databey           #+#    #+#             */
-/*   Updated: 2023/10/11 16:53:37 by databey          ###   ########.fr       */
+/*   Created: 2023/10/11 17:50:03 by databey           #+#    #+#             */
+/*   Updated: 2023/10/11 17:56:45 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	**arr;
-	int		i;
-	size_t	len;
-	char	*temp;
-
-	len = ft_strlen(s);
-	arr = (char **)malloc((len + 1) * sizeof(char *));
-	if (!arr)
-		return (NULL);
-	i = 0;
-	while (*s)
+	if (n == -2147483648)
 	{
-		temp = ft_substr(s, 0, ft_strchr(s, c) - s);
-		if (temp)
-			arr[i++] = temp;
-		s = ft_strchr(s, c);
-		if (!s)
-			break ;
-		s++;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	arr[i] = NULL ;
-	return (arr);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		nb %= 10;
+	}
+	ft_putchar(nb + '0');
 }

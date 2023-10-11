@@ -1,39 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 14:07:19 by databey           #+#    #+#             */
-/*   Updated: 2023/10/11 16:53:37 by databey          ###   ########.fr       */
+/*   Created: 2023/10/11 16:58:21 by databey           #+#    #+#             */
+/*   Updated: 2023/10/11 17:40:22 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+int	ft_log10(int n)
 {
-	char	**arr;
-	int		i;
-	size_t	len;
-	char	*temp;
+	int	i;
 
-	len = ft_strlen(s);
-	arr = (char **)malloc((len + 1) * sizeof(char *));
-	if (!arr)
-		return (NULL);
 	i = 0;
-	while (*s)
+	while (n >= 10)
 	{
-		temp = ft_substr(s, 0, ft_strchr(s, c) - s);
-		if (temp)
-			arr[i++] = temp;
-		s = ft_strchr(s, c);
-		if (!s)
-			break ;
-		s++;
+		n /= 10;
+		i++;
 	}
-	arr[i] = NULL ;
-	return (arr);
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		base;
+	int		sign;
+	int		i;
+
+	sign = 0;
+	if (n < 0)
+	{
+		sign = 1;
+		n *= -1;
+	}
+	base = ft_log10(n) + 1 + sign;
+	str = (char *)malloc(base + 1);
+	str[base] = '\0';
+	while (base--)
+	{
+		str[base] = n % 10 + '0';
+		n /= 10;
+	}
+	if (sign == 1)
+		str[0] = '-';
+	return (str);
 }
