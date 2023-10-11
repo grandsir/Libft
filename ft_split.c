@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:07:19 by databey           #+#    #+#             */
-/*   Updated: 2023/10/11 15:53:47 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/11 16:29:22 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,25 @@
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	char	*temp;
 	int		i;
+	size_t	len;
+	char	*temp;
 
-	while (ft_strchr(s, c) - i < ft_strlen(s) && arr)
+	len = ft_strlen(s);
+	arr = (char **)malloc((len + 1) * sizeof(char *));
+	if (!arr)
+		return (NULL);
+	i = 0;
+	while (*s)
 	{
-		temp = ft_substr(s, i, ft_strchr(s, c) - i);
-		*(arr)++ = temp;
+		temp = ft_substr(s, 0, ft_strchr(s, c) - s);
+		if (temp)
+			arr[i++] = temp;
+		s = ft_strchr(s, c);
+		if (!s)
+			break ;
+		s++;
 	}
+	arr[i] = NULL ;
 	return (arr);
-}
-
-int main() {
-	char *str = "test,test,test";
-	char sep = ',';
-	char **arr = ft_split(str, c);
-
-	while(*arr)
-	{
-		printf("%s", *(arr)++);
-	}
 }
