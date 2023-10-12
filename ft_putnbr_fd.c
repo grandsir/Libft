@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:50:03 by databey           #+#    #+#             */
-/*   Updated: 2023/10/11 17:56:45 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/12 13:19:18 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putstr_fd("-2147483648", fd);
 		return ;
 	}
-	if (nb < 0)
+	if (n < 0)
 	{
-		ft_putchar('-');
-		nb = -nb;
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
-	if (nb >= 10)
+	if (n >= 10)
 	{
-		ft_putnbr(nb / 10);
-		nb %= 10;
+		ft_putnbr_fd(n / 10, fd);
+		n %= 10;
 	}
-	ft_putchar(nb + '0');
+	ft_putchar_fd(n + '0', fd);
 }

@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:35:34 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 16:32:20 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/12 13:17:19 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		while (i-- > 0)
 			((unsigned char *) dst)[i] = ((unsigned char *) src)[i];
 	}
-	else
-		return (dst);
+	return (dst);
 }

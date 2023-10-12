@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:07:19 by databey           #+#    #+#             */
-/*   Updated: 2023/10/11 16:53:37 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/12 18:26:16 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,18 @@ char	**ft_split(char const *s, char c)
 	}
 	arr[i] = NULL ;
 	return (arr);
+}
+
+#include <stdio.h>
+int main() {
+	char *str = "Ahmet,Mehmet,Fatma";
+	char sep = ',';
+
+	int i = 0;
+	char **splitted = ft_split(str, sep);
+	while(i < 3)
+	{
+		printf("%s\n", splitted[i]);
+		i++;
+	}
 }

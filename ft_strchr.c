@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:05:22 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 11:25:06 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/12 17:35:18 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
+	size_t	len;
 
 	i = 0;
-	while (i < ft_strlen(s) + 1)
+	len = ft_strlen(s);
+	while (i < len + 1)
 	{
-		if (s[i] == c)
-			return (s[i]);
+		if (s[i] == (unsigned char) c)
+			return (((char *) s) + i);
 		i++;
 	}
 	return (NULL);

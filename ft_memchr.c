@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:04:08 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 13:41:05 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/12 14:46:07 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*str;
 
-	if (s == NULL)
-		return (NULL);
 	i = 0;
+	str = (unsigned char *)s;
 	while (i < n)
 	{
-		if (((unsigned char *)s)[i] == c)
-			return (s);
+		if (str[i] == (unsigned char) c)
+			return (str + i);
 		i++;
 	}
 	return (NULL);

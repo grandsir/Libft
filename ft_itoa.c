@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:58:21 by databey           #+#    #+#             */
-/*   Updated: 2023/10/11 17:40:22 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/12 14:25:54 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		base;
 	int		sign;
-	int		i;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	sign = 0;
 	if (n < 0)
 	{
@@ -40,6 +41,8 @@ char	*ft_itoa(int n)
 	}
 	base = ft_log10(n) + 1 + sign;
 	str = (char *)malloc(base + 1);
+	if (str == NULL)
+		return (NULL);
 	str[base] = '\0';
 	while (base--)
 	{

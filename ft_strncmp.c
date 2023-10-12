@@ -6,8 +6,12 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:06:12 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 13:06:31 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/12 13:41:15 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_strncmp(void)
+{
+}

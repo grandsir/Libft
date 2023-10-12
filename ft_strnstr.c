@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:36:48 by databey           #+#    #+#             */
-/*   Updated: 2023/10/10 12:39:45 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/12 13:20:04 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		j = 0;
 		while (hay[i + j] && needle[j]
-			& hay[i + j] == needle[j] && i + j < len)
+			&& hay[i + j] == needle[j] && i + j < len)
 			j++;
 		if (j == n_len)
 			return (hay + i);
