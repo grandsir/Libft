@@ -6,11 +6,17 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:32:48 by databey           #+#    #+#             */
-/*   Updated: 2023/10/12 14:40:49 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/14 01:19:57 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -31,8 +37,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_bzero(void *s, size_t n);
+int		ft_lstsize(t_list *lst);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *str);
 int		ft_isalpha(int c);
@@ -43,6 +53,8 @@ int		ft_isdigit(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_isascii(int c);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *str);
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
