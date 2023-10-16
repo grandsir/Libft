@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:05:06 by databey           #+#    #+#             */
-/*   Updated: 2023/10/12 16:48:35 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/16 14:45:45 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t		i;
 	size_t		j;
 
-	if (!s)
-		return (NULL);
+	if (start > (unsigned int)ft_strlen(s))
+		return (ft_strdup(""));
+	if (len >= (unsigned int)ft_strlen(s + start))
+		len = ft_strlen(s + start);
 	str = (char *)malloc(len + 1);
-	if (!str)
+	if (!str || !s)
 		return (NULL);
 	i = 0;
 	j = 0;
