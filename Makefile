@@ -7,7 +7,7 @@ BONUS_DOTC = ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstsize.c ft_lstadd_b
 NAME = libft.a
 OBJECTS = $(DOTC:.c=.o)
 BONUS_OBJECTS = $(BONUS_DOTC:.c=.o)
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)

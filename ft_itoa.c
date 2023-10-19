@@ -6,13 +6,13 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:58:21 by databey           #+#    #+#             */
-/*   Updated: 2023/10/12 14:25:54 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/19 15:32:19 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_log10(int n)
+static int	ft_log10(int n)
 {
 	int	i;
 

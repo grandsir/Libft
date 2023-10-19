@@ -6,13 +6,13 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:07:19 by databey           #+#    #+#             */
-/*   Updated: 2023/10/19 13:03:39 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/19 15:32:35 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(const char *str, char c)
+static int	count_words(const char *str, char c)
 {
 	int	i;
 	int	trigger;
@@ -33,7 +33,7 @@ int	count_words(const char *str, char c)
 	return (i);
 }
 
-void	free_arr(char **arr)
+static void	free_arr(char **arr)
 {
 	char	**temp;
 
@@ -46,7 +46,7 @@ void	free_arr(char **arr)
 	free(arr);
 }
 
-size_t	get_len(const char *s, char c)
+static size_t	get_len(const char *s, char c)
 {
 	if (!ft_strchr(s, c))
 		return (ft_strlen(s));
