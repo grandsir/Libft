@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 02:47:53 by databey           #+#    #+#             */
-/*   Updated: 2023/10/14 02:55:02 by databey          ###   ########.fr       */
+/*   Updated: 2023/10/19 12:54:34 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,22 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
 	t_list	*save;
+	void	*content;
 
 	if (!lst || !f || !del)
 		return (0);
-	new_list = ft_lstnew(f(lst->content));
-	if (!new_list)
-		return (0);
-	save = new_list;
-	lst = lst->next;
+	save = 0;
 	while (lst)
 	{
-		new_list->next = ft_lstnew(f(lst->content));
-		if (!new_list->next)
+		content = f(lst->content);
+		new_list = ft_lstnew(content);
+		if (!new_list)
 		{
+			del(content);
 			ft_lstclear(&save, del);
 			return (0);
 		}
-		new_list = new_list->next;
+		ft_lstadd_back(&save, new_list);
 		lst = lst->next;
 	}
 	new_list->next = NULL;
